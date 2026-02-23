@@ -101,7 +101,7 @@
         
         .template-image {
             width: 100%;
-            padding-bottom: 75%; /* 4:3 aspect ratio */
+            padding-bottom: 100%; /* 4:3 aspect ratio */
             background-size: cover;
             background-position: center;
             position: relative;
@@ -315,7 +315,7 @@
         <div class="templates-grid">
             <!-- 模板卡片1 -->
             <div class="template-card" data-industry="tech" data-style="modern" data-title="科技企业官网模板" data-desc="专为科技公司设计的专业官网模板，突出创新和技术实力。" data-id="001">
-                <div class="template-image" style="background-image: url('https://www.shopagg.com/wp-content/uploads/2025/11/wp038-1.webp')">
+                <div class="template-image" style="background-image: url('images/demo/001.jpg')">
                     <span class="template-tag">热门</span>
                 </div>
                 <div class="template-info">
@@ -327,7 +327,7 @@
                         <span class="feature">SEO优化</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview">在线预览</button>
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-001/">在线预览</button>
                         <button class="btn btn-contact">联系客服</button>
                     </div>
                 </div>
@@ -494,8 +494,10 @@
         // 预览和下载按钮事件
         document.querySelectorAll('.btn-preview').forEach(button => {
             button.addEventListener('click', function() {
-                const templateName = this.closest('.template-card').querySelector('.template-title').textContent;
-                alert(`正在预览模板: ${templateName}`);
+                // const templateName = this.closest('.template-card').querySelector('.template-title').textContent;
+                const url = this.dataset.url || '#';
+                // alert(`正在预览模板: ${templateName}`);
+                window.open(url, '_blank');
             });
         });
         
