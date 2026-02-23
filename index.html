@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B企业官网模板库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .filters {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .filter-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        select, input {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+        
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .template-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .template-image {
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 aspect ratio */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            height: 0;
+        }
+        
+        .template-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .template-info {
+            padding: 1.5rem;
+        }
+        
+        .template-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .template-desc {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .template-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature {
+            background: #e8f4fd;
+            color: #3498db;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .template-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-preview {
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-preview:hover {
+            background: #2980b9;
+        }
+        
+        .btn-download {
+            background: #2ecc71;
+            color: white;
+        }
+        
+        .btn-download:hover {
+            background: #27ae60;
+        }
+        
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 4% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: -10px;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+        
+        .modal-content h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .modal-content p {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            select, input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>B2B企业官网模板库</h1>
+            <p class="subtitle">专业的企业级网站模板，助力您的业务增长</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label for="industry">行业分类</label>
+                    <select id="industry">
+                        <option value="">全部行业</option>
+                        <option value="tech">科技</option>
+                        <option value="manufacturing">制造业</option>
+                        <option value="finance">金融</option>
+                        <option value="healthcare">医疗健康</option>
+                        <option value="logistics">物流</option>
+                        <option value="energy">能源环保</option>
+                        <option value="travel">旅游行业</option>
+                        <option value="retail">零售行业</option>
+                        <option value="education">教育行业</option>
+                        <option value="construction">建筑行业</option>
+                        <option value="service">服务行业</option>
+                        <option value="mechanical">机械设备</option>
+                    </select>
+                </div>
+                
+                <div class="filter-item">
+                    <label for="style">设计风格</label>
+                    <select id="style">
+                        <option value="">全部风格</option>
+                        <option value="modern">现代简约</option>
+                        <option value="professional">商务专业</option>
+                        <option value="creative">创意设计</option>
+                        <option value="corporate">企业集团</option>
+                    </select>
+                </div>
+                
+                <div class="filter-item">
+                    <label for="search">搜索模板</label>
+                    <input type="text" id="search" placeholder="输入关键词搜索...">
+                </div>
+            </div>
+        </div>
+        
+        <div class="templates-grid">
+            <!-- 模板卡片1 -->
+            <div class="template-card" data-industry="tech" data-style="modern" data-title="科技企业官网模板" data-desc="专为科技公司设计的专业官网模板，突出创新和技术实力。" data-id="001">
+                <div class="template-image" style="background-image: url('https://www.shopagg.com/wp-content/uploads/2025/11/wp038-1.webp')">
+                    <span class="template-tag">热门</span>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">科技企业官网模板</h3>
+                    <p class="template-desc">专为科技公司设计的专业官网模板，突出创新和技术实力。</p>
+                    <div class="template-features">
+                        <span class="feature">响应式设计</span>
+                        <span class="feature">多语言支持</span>
+                        <span class="feature">SEO优化</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 模板卡片2 -->
+            <div class="template-card" data-industry="manufacturing" data-style="professional" data-title="制造业官网模板" data-desc="适用于制造企业的官方网站模板，展示产品和服务优势。">
+                <div class="template-image" style="background-image: url('https://www.shopagg.com/wp-content/uploads/2025/11/wp038-1.webp')">
+                    <span class="template-tag">推荐</span>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">制造业官网模板</h3>
+                    <p class="template-desc">适用于制造企业的官方网站模板，展示产品和服务优势。</p>
+                    <div class="template-features">
+                        <span class="feature">产品展示</span>
+                        <span class="feature">客户案例</span>
+                        <span class="feature">认证资质</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 模板卡片3 -->
+            <div class="template-card" data-industry="finance" data-style="corporate" data-title="金融服务官网模板" data-desc="为金融机构打造的专业官网模板，强调安全和信任。">
+                <div class="template-image" style="background-image: url('https://www.shopagg.com/wp-content/uploads/2025/11/wp038-1.webp')">
+                    <span class="template-tag">新上架</span>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">金融服务官网模板</h3>
+                    <p class="template-desc">为金融机构打造的专业官网模板，强调安全和信任。</p>
+                    <div class="template-features">
+                        <span class="feature">安全认证</span>
+                        <span class="feature">数据可视化</span>
+                        <span class="feature">合规展示</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 模板卡片4 -->
+            <div class="template-card" data-industry="healthcare" data-style="professional" data-title="医疗健康官网模板" data-desc="面向医疗健康行业的专业官网模板，体现专业性和关怀。">
+                <div class="template-image" style="background-image: url('https://www.shopagg.com/wp-content/uploads/2025/11/wp038-1.webp')">
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">医疗健康官网模板</h3>
+                    <p class="template-desc">面向医疗健康行业的专业官网模板，体现专业性和关怀。</p>
+                    <div class="template-features">
+                        <span class="feature">资质展示</span>
+                        <span class="feature">专家团队</span>
+                        <span class="feature">服务预约</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 模板卡片5 -->
+            <div class="template-card" data-industry="logistics" data-style="modern" data-title="物流企业官网模板" data-desc="为物流企业提供的一站式官网解决方案，突出服务网络。">
+                <div class="template-image" style="background-image: url('https://www.shopagg.com/wp-content/uploads/2025/11/wp038-1.webp')">
+                    <span class="template-tag">精选</span>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">物流企业官网模板</h3>
+                    <p class="template-desc">为物流企业提供的一站式官网解决方案，突出服务网络。</p>
+                    <div class="template-features">
+                        <span class="feature">物流追踪</span>
+                        <span class="feature">服务网点</span>
+                        <span class="feature">价格计算</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 模板卡片6 -->
+            <div class="template-card" data-industry="energy" data-style="creative" data-title="能源环保官网模板" data-desc="适合能源和环保企业的官网模板，展现绿色可持续理念。">
+                <div class="template-image" style="background-image: url('https://www.shopagg.com/wp-content/uploads/2025/11/wp038-1.webp')">
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">能源环保官网模板</h3>
+                    <p class="template-desc">适合能源和环保企业的官网模板，展现绿色可持续理念。</p>
+                    <div class="template-features">
+                        <span class="feature">项目案例</span>
+                        <span class="feature">环保认证</span>
+                        <span class="feature">社会责任</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="no-results" id="no-results" style="display: none; text-align: center; margin-top: 2rem; color: #666;">
+            <p>没有找到匹配的模板，请尝试调整筛选条件。</p>
+        </div>
+    </div>
+    
+    <!-- 微信二维码模态框 -->
+    <div id="qr-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>联系客服</h2>
+            <img src="https://www.shopagg.com/wp-content/uploads/2026/02/shopagg-wecom.webp" alt="微信二维码">
+            <p>扫描二维码添加微信客服</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 B2B企业官网模板库 - 专业的企业级网站解决方案</p>
+    </footer>
+    
+    <script>
+        // 筛选和搜索功能
+        const industrySelect = document.getElementById('industry');
+        const styleSelect = document.getElementById('style');
+        const searchInput = document.getElementById('search');
+        const templateCards = document.querySelectorAll('.template-card');
+        const noResults = document.getElementById('no-results');
+
+        function filterTemplates() {
+            const industry = industrySelect.value;
+            const style = styleSelect.value;
+            const search = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            templateCards.forEach(card => {
+                const cardIndustry = card.dataset.industry;
+                const cardStyle = card.dataset.style;
+                const cardTitle = card.dataset.title.toLowerCase();
+                const cardDesc = card.dataset.desc.toLowerCase();
+
+                const matchesIndustry = !industry || cardIndustry === industry;
+                const matchesStyle = !style || cardStyle === style;
+                const matchesSearch = !search || cardTitle.includes(search) || cardDesc.includes(search);
+
+                if (matchesIndustry && matchesStyle && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // 添加事件监听器
+        industrySelect.addEventListener('change', filterTemplates);
+        styleSelect.addEventListener('change', filterTemplates);
+        searchInput.addEventListener('input', filterTemplates);
+
+        // 预览和下载按钮事件
+        document.querySelectorAll('.btn-preview').forEach(button => {
+            button.addEventListener('click', function() {
+                const templateName = this.closest('.template-card').querySelector('.template-title').textContent;
+                alert(`正在预览模板: ${templateName}`);
+            });
+        });
+        
+        document.querySelectorAll('.btn-contact').forEach(button => {
+            button.addEventListener('click', function() {
+                const modal = document.getElementById('qr-modal');
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // 禁止页面滚动
+            });
+        });
+        
+        // 模态框关闭功能
+        const modal = document.getElementById('qr-modal');
+        const closeBtn = document.querySelector('.close');
+        
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // 恢复页面滚动
+        }
+        
+        closeBtn.addEventListener('click', closeModal);
+        
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>
