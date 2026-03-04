@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2B企业官网模板库</title>
+    <title>B2B企业官网模板库 - SHOPAGG建站服务</title>
+    <meta name="description" content="精选21套B2B企业官网模板，涵盖机械、能源、医疗、物流、建筑等多个行业，提供产品展示、工厂实力、在线询盘等完整功能，源码可交付，支持自主修改与部署。">
+    
+    <!-- 引入 Bootstrap 5 CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 FontAwesome 图标 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #0b5ed7;
+            --primary-dark: #0a4bb4;
+            --secondary-color: #f8fafc;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+            --step-bg: #e0ecff;
+            --step-text: #1d4ed8;
+            --surface: #ffffff;
+            --soft-blue: #eef5ff;
+            --soft-amber: #fff3d6;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,12 +32,91 @@
         }
         
         body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
+            font-family: 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(180deg, #f6f8fb 0%, #ffffff 40%, #f6f8fb 100%);
+            color: var(--text-dark);
             line-height: 1.6;
         }
-        
+
+        h1, h2, h3, h4 {
+            letter-spacing: 0.2px;
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 1rem 0;
+            background: #ffffff;
+            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+            transition: all 0.3s;
+        }
+
+        .navbar-brand {
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+            color: var(--text-dark) !important;
+        }
+
+        .navbar-brand:hover {
+            transform: translateY(-1px);
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            color: var(--text-dark) !important;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.12);
+            border-radius: 12px;
+            padding: 0.75rem 0;
+            margin-top: 0.5rem;
+            min-width: 220px;
+        }
+
+        .dropdown-item {
+            padding: 0.6rem 1.25rem;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background: var(--soft-blue);
+            color: var(--primary-dark);
+            padding-left: 1.5rem;
+        }
+
+        .dropdown-toggle::after {
+            vertical-align: 0.15em;
+            margin-left: 0.4em;
+        }
+
         header {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
             color: white;
@@ -28,7 +127,7 @@
         .header-content {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 60px;
         }
         
         h1 {
@@ -41,17 +140,13 @@
             opacity: 0.9;
         }
         
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+
         
         .filters {
             background: white;
             padding: 1.5rem;
             border-radius: 8px;
-            margin-bottom: 2rem;
+            margin: 2rem 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
@@ -78,6 +173,13 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             width: 200px;
+            font-family: inherit;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(11, 94, 215, 0.1);
         }
         
         .templates-grid {
@@ -101,7 +203,7 @@
         
         .template-image {
             width: 100%;
-            padding-bottom: 100%; /* 4:3 aspect ratio */
+            padding-bottom: 100%;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -117,6 +219,7 @@
             padding: 0.3rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
+            font-weight: 600;
         }
         
         .template-info {
@@ -126,13 +229,15 @@
         .template-title {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: #2c3e50;
+            color: var(--text-dark);
+            font-weight: 600;
         }
         
         .template-desc {
-            color: #7f8c8d;
+            color: var(--text-muted);
             margin-bottom: 1rem;
             font-size: 0.95rem;
+            line-height: 1.5;
         }
         
         .template-features {
@@ -143,109 +248,49 @@
         }
         
         .feature {
-            background: #e8f4fd;
-            color: #3498db;
-            padding: 0.3rem 0.8rem;
+            background: var(--soft-blue);
+            color: var(--primary-color);
+            padding: 0.35rem 0.85rem;
             border-radius: 15px;
             font-size: 0.8rem;
+            font-weight: 500;
         }
         
         .template-actions {
             display: flex;
-            justify-content: space-between;
+            gap: 0.75rem;
         }
         
-        .btn {
-            padding: 0.6rem 1.2rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-preview {
-            background: #3498db;
-            color: white;
-        }
-        
-        .btn-preview:hover {
-            background: #2980b9;
-        }
-        
-        .btn-download {
-            background: #2ecc71;
-            color: white;
-        }
-        
-        .btn-download:hover {
-            background: #27ae60;
-        }
-        
-        /* 模态框样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.5);
-        }
-        
-        .modal-content {
-            background-color: #fefefe;
-            margin: 4% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 90%;
-            max-width: 400px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: -10px;
-        }
-        
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-        }
-        
-        .modal-content h2 {
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .modal-content img {
-            max-width: 100%;
-            height: auto;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-        
-        .modal-content p {
-            margin-top: 15px;
-            color: #666;
-            font-size: 0.9rem;
-        }
+        /* Bootstrap 5 原生按钮样式已自动应用 */
         
         footer {
-            background: #2c3e50;
+            background-color: #212529;
             color: white;
+            padding: 40px 0;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
+            margin-top: 60px;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #f0f0f0;
+        }
+
+        footer p {
+            margin-bottom: 12px;
+        }
+
+        .no-results {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--text-muted);
+            grid-column: 1 / -1;
         }
         
         @media (max-width: 768px) {
@@ -261,14 +306,65 @@
             select, input {
                 width: 100%;
             }
+
+            .template-actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+            
+            h1 { 
+                font-size: 2rem; 
+            }
         }
     </style>
 </head>
 <body>
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" style="font-style: italic;">
+                <i class="fas fa-layer-group text-primary"></i> SHOPAGG 建站服务
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            服务与优势
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html#services"><i class="fas fa-cogs me-2 text-primary"></i>服务内容</a></li>
+                            <li><a class="dropdown-item" href="index.html#features"><i class="fas fa-star me-2 text-primary"></i>核心优势</a></li>
+                            <li><a class="dropdown-item" href="index.html#features-detail"><i class="fas fa-th-large me-2 text-primary"></i>系统功能</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="index.html#trust"><i class="fas fa-shield-alt me-2 text-primary"></i>信任保障</a></li>
+                            <li><a class="dropdown-item" href="index.html#deliverables"><i class="fas fa-clipboard-list me-2 text-primary"></i>交付清单</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#process">建站流程</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#pricing">价格方案</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#cases">案例展示</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#faq">常见问题</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">联系我们</a></li>
+                    <li class="nav-item ms-3">
+                        <a href="https://www.shopagg.org/" target="_blank" class="btn btn-outline-primary btn-sm px-3">开源官网</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <header>
         <div class="header-content">
-            <h1>工厂外贸 B2B官网模板</h1>
-            <p class="subtitle">不懂技术？没有团队？没关系。您只需要上传产品，即可开始运营！<br/>我们提供从建站到上线的一条龙服务，按您的要求定制页面图片、文字、视频、配色、布局全部搞定。</p>
+            <h1>B2B企业官网模板库</h1>
+            <p class="subtitle">精选21套B2B企业官网模板，展示公司信息、工厂实力、生产制造能力 · 源码交付 · 完全可定制</p>
         </div>
     </header>
     
@@ -325,8 +421,8 @@
                         <span class="feature">多语言支持</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-001/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-001/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -345,8 +441,8 @@
                         <span class="feature">在线询盘入口</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-002/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-002/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -365,8 +461,8 @@
                         <span class="feature">资质证书模块</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-003/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-003/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -385,8 +481,8 @@
                         <span class="feature">ESG内容展示</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-004/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-004/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -405,8 +501,8 @@
                         <span class="feature">在线询盘入口</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-005/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-005/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -425,8 +521,8 @@
                         <span class="feature">售后支持中心</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-006/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-006/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -445,8 +541,8 @@
                         <span class="feature">批发询盘表单</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-007/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-007/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -466,8 +562,8 @@
                         <span class="feature">在线询盘表单</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-008/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-008/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -486,8 +582,8 @@
                         <span class="feature">技术支持文档</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-009/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-009/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -506,8 +602,8 @@
                         <span class="feature">合作咨询入口</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-010/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-010/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -527,8 +623,8 @@
                         <span class="feature">快速报修入口</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-011/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-011/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -548,8 +644,8 @@
                         <span class="feature">行业合作案例</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-012/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-012/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -568,8 +664,8 @@
                         <span class="feature">供应链交付保障</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-013/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-013/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -588,8 +684,8 @@
                         <span class="feature">餐饮客户案例</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-014/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-014/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -609,8 +705,8 @@
                         <span class="feature">技术白皮书下载</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-015/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-015/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -632,8 +728,8 @@
                         <span class="feature">在线询价系统</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-016/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-016/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -653,8 +749,8 @@
                         <span class="feature">门店服务介绍</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-017/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-017/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -675,8 +771,8 @@
                         <span class="feature">售后网点查询</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-018/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-018/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -696,8 +792,8 @@
                         <span class="feature">合规资质展示</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-019/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-019/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -716,8 +812,8 @@
                         <span class="feature">在线报价咨询</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-020/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-020/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -736,8 +832,8 @@
                         <span class="feature">在线询盘入口</span>
                     </div>
                     <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-021/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+                        <button class="btn btn-primary" data-url="https://demo.shopagg.org/b2b-021/">在线预览</button>
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#qrModal">联系客服</button>
                     </div>
                 </div>
             </div>
@@ -749,18 +845,34 @@
         </div>
     </div>
     
-    <!-- 微信二维码模态框 -->
-    <div id="qr-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>联系客服</h2>
-            <img src="https://www.shopagg.com/wp-content/uploads/2026/02/IMG_2002.jpg" alt="微信二维码">
-            <p>扫描二维码添加微信客服</p>
+    <!-- 微信二维码模态框 - Bootstrap 5 原生样式 -->
+    <div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="qrModalLabel">联系客服</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="https://www.shopagg.com/wp-content/uploads/2026/02/IMG_2002.jpg" alt="微信二维码" class="w-100 rounded mb-3">
+                    <p>扫描二维码添加微信客服</p>
+                </div>
+            </div>
         </div>
     </div>
     
-    <footer>
-        <p>&copy; 2026 <a style="color: #2ecc71;" href="https://www.shopagg.com/b2b/">SHOPAGG建站服务</a> - 专业的跨境外贸企业网站解决方案</p>
+    <!-- Footer -->
+    <footer class="text-center mt-5">
+        <div class="container">
+            <p class="mb-4">&copy; 2026 杭州思普艾格网络科技有限公司 版权所有</p>
+            <p class="small">
+                <a href="https://github.com/zhpelo/shopagg-b2b-website"><i class="fab fa-github"></i> ShopAgg开源建站系统</a> 
+                <span> / </span> 
+                <a href="https://www.shopagg.com/wordpress-hosting/">WordPress主机</a>
+                <span> / </span> 
+                <a href="https://smallshop.pro/">跨境小商店</a>
+            </p>
+        </div>
     </footer>
     
     <script>
@@ -803,40 +915,18 @@
         styleSelect.addEventListener('change', filterTemplates);
         searchInput.addEventListener('input', filterTemplates);
 
-        // 预览和下载按钮事件
-        document.querySelectorAll('.btn-preview').forEach(button => {
-            button.addEventListener('click', function() {
-                // const templateName = this.closest('.template-card').querySelector('.template-title').textContent;
-                const url = this.dataset.url || '#';
-                // alert(`正在预览模板: ${templateName}`);
-                window.open(url, '_blank');
-            });
-        });
-        
-        document.querySelectorAll('.btn-contact').forEach(button => {
-            button.addEventListener('click', function() {
-                const modal = document.getElementById('qr-modal');
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // 禁止页面滚动
-            });
-        });
-        
-        // 模态框关闭功能
-        const modal = document.getElementById('qr-modal');
-        const closeBtn = document.querySelector('.close');
-        
-        function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // 恢复页面滚动
-        }
-        
-        closeBtn.addEventListener('click', closeModal);
-        
-        window.addEventListener('click', function(event) {
-            if (event.target == modal) {
-                closeModal();
+        // 预览按钮事件
+        document.querySelectorAll('.btn-primary').forEach(button => {
+            if (button.dataset.url) {
+                button.addEventListener('click', function() {
+                    const url = this.dataset.url || '#';
+                    window.open(url, '_blank');
+                });
             }
         });
     </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
