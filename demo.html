@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B企业官网模板库</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .filters {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .filter-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        select, input {
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+        
+        .templates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .template-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .template-image {
+            width: 100%;
+            padding-bottom: 100%; /* 4:3 aspect ratio */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            height: 0;
+        }
+        
+        .template-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff6b6b;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        .template-info {
+            padding: 1.5rem;
+        }
+        
+        .template-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        
+        .template-desc {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .template-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature {
+            background: #e8f4fd;
+            color: #3498db;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .template-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-preview {
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-preview:hover {
+            background: #2980b9;
+        }
+        
+        .btn-download {
+            background: #2ecc71;
+            color: white;
+        }
+        
+        .btn-download:hover {
+            background: #27ae60;
+        }
+        
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 4% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 400px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: -10px;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+        }
+        
+        .modal-content h2 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .modal-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+        
+        .modal-content p {
+            margin-top: 15px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .templates-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-group {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            select, input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>工厂外贸 B2B官网模板</h1>
+            <p class="subtitle">不懂技术？没有团队？没关系。您只需要上传产品，即可开始运营！<br/>我们提供从建站到上线的一条龙服务，按您的要求定制页面图片、文字、视频、配色、布局全部搞定。</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="filters">
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label for="industry">行业分类</label>
+                    <select id="industry">
+                        <option value="">全部行业</option>
+                        <option value="tech">科技行业</option>
+                        <option value="finance">金融行业</option>
+                        <option value="healthcare">医疗行业</option>
+                        <option value="logistics">物流行业</option>
+                        <option value="energy">能源行业</option>
+                        <option value="travel">旅游行业</option>
+                        <option value="education">教育行业</option>
+                        <option value="construction">建筑行业</option>
+                        <option value="service">服务行业</option>
+                        <option value="mechanical">机械行业</option>
+                    </select>
+                </div>
+                
+                <div class="filter-item">
+                    <label for="style">设计风格</label>
+                    <select id="style">
+                        <option value="">全部风格</option>
+                        <option value="modern">现代简约</option>
+                        <option value="professional">商务专业</option>
+                        <option value="creative">创意设计</option>
+                        <option value="corporate">企业集团</option>
+                    </select>
+                </div>
+                
+                <div class="filter-item">
+                    <label for="search">搜索模板</label>
+                    <input type="text" id="search" placeholder="输入关键词搜索...">
+                </div>
+            </div>
+        </div>
+        
+        <div class="templates-grid">
+            <!-- 模板卡片1 -->
+            <div class="template-card" data-industry="mechanical" data-style="modern" data-title="通用机械制造企业官网模板" data-desc="面向机械制造企业的官网模板，突出产品能力、生产实力与行业案例。" data-id="001">
+                <div class="template-image" style="background-image: url('images/demo/001/main-800x800.png')">
+                    <span class="template-tag">热门</span>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">通用机械制造企业官网模板</h3>
+                    <p class="template-desc">面向机械制造企业的官网模板，突出产品能力、生产实力与行业案例。</p>
+                    <div class="template-features">
+                        <span class="feature">设备参数展示</span>
+                        <span class="feature">工厂实力呈现</span>
+                        <span class="feature">多语言支持</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-001/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 模板卡片2 -->
+            <div class="template-card" data-industry="service" data-style="professional" data-title="食品加工企业官网模板" data-desc="适用于食品加工与供应企业，重点展示公司资质、工厂产线与产品能力。">
+                <div class="template-image" style="background-image: url('images/demo/002/main-800x800.png')">
+                    <span class="template-tag">推荐</span>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">食品加工企业官网模板</h3>
+                    <p class="template-desc">适用于食品加工与供应企业，重点展示公司资质、工厂产线与产品能力。</p>
+                    <div class="template-features">
+                        <span class="feature">产品系列展示</span>
+                        <span class="feature">工厂产线介绍</span>
+                        <span class="feature">在线询盘入口</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-002/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模板卡片3 -->
+            <div class="template-card" data-industry="mechanical" data-style="professional" data-title="钢铁制造企业官网模板" data-desc="适配钢铁与金属加工企业，清晰展示产能、设备与工程服务能力。">
+                <div class="template-image" style="background-image: url('images/demo/003/main-800x800.png')">
+                    <span class="template-tag">推荐</span>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">钢铁制造企业官网模板</h3>
+                    <p class="template-desc">适配钢铁与金属加工企业，清晰展示产能、设备与工程服务能力。</p>
+                    <div class="template-features">
+                        <span class="feature">产能与工艺介绍</span>
+                        <span class="feature">工程案例展示</span>
+                        <span class="feature">资质证书模块</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-003/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 模板卡片4 -->
+            <div class="template-card" data-industry="energy" data-style="professional" data-title="新能源企业集团官网模板" data-desc="适用于风电、储能与清洁能源企业，强化技术方案与项目成果展示。">
+                <div class="template-image" style="background-image: url('images/demo/004/main-800x800.png')">
+                    <span class="template-tag">推荐</span>
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">新能源企业集团官网模板</h3>
+                    <p class="template-desc">适用于风电、储能与清洁能源企业，强化技术方案与项目成果展示。</p>
+                    <div class="template-features">
+                        <span class="feature">能源解决方案</span>
+                        <span class="feature">项目案例地图</span>
+                        <span class="feature">ESG内容展示</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-004/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 模板卡片5 -->
+            <div class="template-card" data-industry="construction" data-style="creative" data-title="装修工程企业官网模板" data-desc="聚焦企业实力与施工能力展示，适用于装修设计与工程服务公司。">
+                <div class="template-image" style="background-image: url('images/demo/005/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">装修工程企业官网模板</h3>
+                    <p class="template-desc">聚焦企业实力与施工能力展示，适用于装修设计与工程服务公司。</p>
+                    <div class="template-features">
+                        <span class="feature">项目作品集</span>
+                        <span class="feature">施工流程说明</span>
+                        <span class="feature">在线询盘入口</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-005/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 模板卡片6 -->
+            <div class="template-card" data-industry="tech" data-style="modern" data-title="无人机品牌宣传网站模板" data-desc="面向无人机品牌与渠道商，适合展示产品矩阵、应用场景与售后服务。">
+                <div class="template-image" style="background-image: url('images/demo/006/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">无人机品牌宣传网站模板</h3>
+                    <p class="template-desc">面向无人机品牌与渠道商，适合展示产品矩阵、应用场景与售后服务。</p>
+                    <div class="template-features">
+                        <span class="feature">应用场景展示</span>
+                        <span class="feature">产品参数对比</span>
+                        <span class="feature">售后支持中心</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-006/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+              <!-- 模板卡片7 -->
+            <div class="template-card" data-industry="tech" data-style="modern" data-title="智能手表配件工厂网站模板" data-desc="适用于智能穿戴配件厂商，突出供应能力、定制服务和批发合作。">
+                <div class="template-image" style="background-image: url('images/demo/007/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">智能手表配件工厂网站模板</h3>
+                    <p class="template-desc">适用于智能穿戴配件厂商，突出供应能力、定制服务和批发合作。</p>
+                    <div class="template-features">
+                        <span class="feature">配件目录中心</span>
+                        <span class="feature">OEM/ODM定制</span>
+                        <span class="feature">批发询盘表单</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-007/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 模板卡片8 -->
+            <div class="template-card" data-industry="tech" data-style="modern" data-title="手机数码企业官网模板" data-desc="适用于手机与数码制造企业，突出公司实力、产品矩阵与供货能力。">
+                <div class="template-image" style="background-image: url('images/demo/008/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">手机数码企业官网模板</h3>
+                    <p class="template-desc">适用于手机与数码制造企业，突出公司实力、产品矩阵与供货能力。</p>
+                    <div class="template-features">
+                        <span class="feature">产品矩阵展示</span>
+                        <span class="feature">工厂能力介绍</span>
+                        <span class="feature">在线询盘表单</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-008/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模板卡片9 -->
+            <div class="template-card" data-industry="tech" data-style="professional" data-title="3C数码电子企业官网模板" data-desc="适配3C电子品牌官网，突出产品性能、渠道合作与技术支持服务。">
+                <div class="template-image" style="background-image: url('images/demo/009/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">3C数码电子企业官网模板</h3>
+                    <p class="template-desc">适配3C电子品牌官网，突出产品性能、渠道合作与技术支持服务。</p>
+                    <div class="template-features">
+                        <span class="feature">产品参数详情</span>
+                        <span class="feature">渠道合作政策</span>
+                        <span class="feature">技术支持文档</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-009/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模板卡片10 -->
+            <div class="template-card" data-industry="service" data-style="creative" data-title="运动健康机构官网模板" data-desc="适用于运动健康服务机构，重点展示机构资质、服务体系与团队能力。">
+                <div class="template-image" style="background-image: url('images/demo/010/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">运动健康机构官网模板</h3>
+                    <p class="template-desc">适用于运动健康服务机构，重点展示机构资质、服务体系与团队能力。</p>
+                    <div class="template-features">
+                        <span class="feature">服务体系展示</span>
+                        <span class="feature">团队资质介绍</span>
+                        <span class="feature">合作咨询入口</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-010/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 模板卡片11 -->
+            <div class="template-card" data-industry="construction" data-style="professional" data-title="房屋建筑维修公司官网模板" data-desc="适用于建筑维修与工程服务企业，突出服务项目、施工流程与保障体系。">
+                <div class="template-image" style="background-image: url('images/demo/011/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">房屋建筑维修公司官网模板</h3>
+                    <p class="template-desc">适用于建筑维修与工程服务企业，突出服务项目、施工流程与保障体系。</p>
+                    <div class="template-features">
+                        <span class="feature">维修服务清单</span>
+                        <span class="feature">工程案例图库</span>
+                        <span class="feature">快速报修入口</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-011/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 模板卡片12 -->
+            <div class="template-card" data-industry="service" data-style="professional" data-title="咖啡原料与设备供应商网站模板" data-desc="适合咖啡豆、咖啡机及配套原料供应商，强化产品体系与合作服务展示。">
+                <div class="template-image" style="background-image: url('images/demo/012/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">咖啡原料与设备供应商网站模板</h3>
+                    <p class="template-desc">适合咖啡豆、咖啡机及配套原料供应商，强化产品体系与合作服务展示。</p>
+                    <div class="template-features">
+                        <span class="feature">原料与设备目录</span>
+                        <span class="feature">批量采购方案</span>
+                        <span class="feature">行业合作案例</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-012/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模板卡片13 -->
+            <div class="template-card" data-industry="service" data-style="professional" data-title="香料供应商企业宣传模板" data-desc="面向食品与餐饮产业链香料供应商，突出品质标准、产地优势与交付能力。">
+                <div class="template-image" style="background-image: url('images/demo/013/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">香料供应商企业宣传模板</h3>
+                    <p class="template-desc">面向食品与餐饮产业链香料供应商，突出品质标准、产地优势与交付能力。</p>
+                    <div class="template-features">
+                        <span class="feature">香料品类中心</span>
+                        <span class="feature">质量标准说明</span>
+                        <span class="feature">供应链交付保障</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-013/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+              <!-- 模板卡片14 -->
+            <div class="template-card" data-industry="service" data-style="professional" data-title="牛排食材供应商官网模板" data-desc="适用于牛排及冷链食材供应企业，突出产品等级、仓配能力与合作客户。">
+                <div class="template-image" style="background-image: url('images/demo/014/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">牛排食材供应商官网模板</h3>
+                    <p class="template-desc">适用于牛排及冷链食材供应企业，突出产品等级、仓配能力与合作客户。</p>
+                    <div class="template-features">
+                        <span class="feature">产品等级说明</span>
+                        <span class="feature">冷链配送服务</span>
+                        <span class="feature">餐饮客户案例</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-014/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 模板卡片15 -->
+            <div class="template-card" data-industry="energy" data-style="professional" data-title="光伏太阳能工厂官网模板" data-desc="适配光伏制造与新能源项目企业，展示组件能力、技术路线与项目落地成果。">
+                <div class="template-image" style="background-image: url('images/demo/015/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">光伏太阳能工厂官网模板</h3>
+                    <p class="template-desc">适配光伏制造与新能源项目企业，展示组件能力、技术路线与项目落地成果。</p>
+                    <div class="template-features">
+                        <span class="feature">组件产品矩阵</span>
+                        <span class="feature">项目应用案例</span>
+                        <span class="feature">技术白皮书下载</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-015/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <!-- 模板卡片16 -->
+            <div class="template-card" data-industry="logistics" data-style="professional" data-title="国际物流运输公司官网模板" data-desc="适用于跨境物流企业，支持路线展示、服务类型说明与运输时效承诺。">
+                <div class="template-image" style="background-image: url('images/demo/016/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">国际物流运输公司官网模板</h3>
+                    <p class="template-desc">适用于跨境物流企业，支持路线展示、服务类型说明与运输时效承诺。</p>
+                    <div class="template-features">
+                        <span class="feature">全球线路网络</span>
+                        <span class="feature">运输时效查询</span>
+                        <span class="feature">在线询价系统</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-016/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 模板卡片17 -->
+            <div class="template-card" data-industry="service" data-style="professional" data-title="汽车销售服务机构官网模板" data-desc="适合汽车销售与售后服务门店，突出车型展示、试驾预约与门店信息。">
+                <div class="template-image" style="background-image: url('images/demo/017/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">汽车销售服务机构官网模板</h3>
+                    <p class="template-desc">适合汽车销售与售后服务门店，突出车型展示、试驾预约与门店信息。</p>
+                    <div class="template-features">
+                        <span class="feature">车型信息中心</span>
+                        <span class="feature">试驾预约入口</span>
+                        <span class="feature">门店服务介绍</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-017/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- 模板卡片18 -->
+            <div class="template-card" data-industry="mechanical" data-style="professional" data-title="农业机械设备企业网站模板" data-desc="适用于农业装备与农机服务企业，强化设备展示、应用场景与服务网络。">
+                <div class="template-image" style="background-image: url('images/demo/018/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">农业机械设备企业网站模板</h3>
+                    <p class="template-desc">适用于农业装备与农机服务企业，强化设备展示、应用场景与服务网络。</p>
+                    <div class="template-features">
+                        <span class="feature">农机产品展示</span>
+                        <span class="feature">作业场景案例</span>
+                        <span class="feature">售后网点查询</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-018/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- 模板卡片19 -->
+            <div class="template-card" data-industry="healthcare" data-style="professional" data-title="医疗器械与康复机构网站模板" data-desc="适合医疗器械企业及康复机构，覆盖产品介绍、科室服务与专业资质展示。">
+                <div class="template-image" style="background-image: url('images/demo/019/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">医疗器械与康复机构网站模板</h3>
+                    <p class="template-desc">适合医疗器械企业及康复机构，覆盖产品介绍、科室服务与专业资质展示。</p>
+                    <div class="template-features">
+                        <span class="feature">医疗产品中心</span>
+                        <span class="feature">康复服务项目</span>
+                        <span class="feature">合规资质展示</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-019/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模板卡片20 -->
+            <div class="template-card" data-industry="service" data-style="creative" data-title="园林花艺服务机构官网模板" data-desc="面向园林景观与花艺服务公司，支持案例展示、服务说明与报价咨询。">
+                <div class="template-image" style="background-image: url('images/demo/020/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">园林花艺服务机构官网模板</h3>
+                    <p class="template-desc">面向园林景观与花艺服务公司，支持案例展示、服务说明与报价咨询。</p>
+                    <div class="template-features">
+                        <span class="feature">景观项目案例</span>
+                        <span class="feature">服务套餐展示</span>
+                        <span class="feature">在线报价咨询</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-020/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+
+             <!-- 模板卡片21 -->
+            <div class="template-card" data-industry="healthcare" data-style="modern" data-title="维生素保健品企业官网模板" data-desc="适用于保健品生产与供应企业，突出公司资质、生产标准与产品研发能力。">
+                <div class="template-image" style="background-image: url('images/demo/021/main-800x800.png')">
+                    <!-- <span class="template-tag">推荐</span> -->
+                </div>
+                <div class="template-info">
+                    <h3 class="template-title">维生素保健品企业官网模板</h3>
+                    <p class="template-desc">适用于保健品生产与供应企业，突出公司资质、生产标准与产品研发能力。</p>
+                    <div class="template-features">
+                        <span class="feature">产品体系展示</span>
+                        <span class="feature">生产标准说明</span>
+                        <span class="feature">在线询盘入口</span>
+                    </div>
+                    <div class="template-actions">
+                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-021/">在线预览</button>
+                        <button class="btn btn-contact">联系客服</button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="no-results" id="no-results" style="display: none; text-align: center; margin-top: 2rem; color: #666;">
+            <p>没有找到匹配的模板，请尝试调整筛选条件。</p>
+        </div>
+    </div>
+    
+    <!-- 微信二维码模态框 -->
+    <div id="qr-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>联系客服</h2>
+            <img src="https://www.shopagg.com/wp-content/uploads/2026/02/IMG_2002.jpg" alt="微信二维码">
+            <p>扫描二维码添加微信客服</p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2026 <a style="color: #2ecc71;" href="https://www.shopagg.com/b2b/">SHOPAGG建站服务</a> - 专业的跨境外贸企业网站解决方案</p>
+    </footer>
+    
+    <script>
+        // 筛选和搜索功能
+        const industrySelect = document.getElementById('industry');
+        const styleSelect = document.getElementById('style');
+        const searchInput = document.getElementById('search');
+        const templateCards = document.querySelectorAll('.template-card');
+        const noResults = document.getElementById('no-results');
+
+        function filterTemplates() {
+            const industry = industrySelect.value;
+            const style = styleSelect.value;
+            const search = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            templateCards.forEach(card => {
+                const cardIndustry = card.dataset.industry;
+                const cardStyle = card.dataset.style;
+                const cardTitle = card.dataset.title.toLowerCase();
+                const cardDesc = card.dataset.desc.toLowerCase();
+
+                const matchesIndustry = !industry || cardIndustry === industry;
+                const matchesStyle = !style || cardStyle === style;
+                const matchesSearch = !search || cardTitle.includes(search) || cardDesc.includes(search);
+
+                if (matchesIndustry && matchesStyle && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        // 添加事件监听器
+        industrySelect.addEventListener('change', filterTemplates);
+        styleSelect.addEventListener('change', filterTemplates);
+        searchInput.addEventListener('input', filterTemplates);
+
+        // 预览和下载按钮事件
+        document.querySelectorAll('.btn-preview').forEach(button => {
+            button.addEventListener('click', function() {
+                // const templateName = this.closest('.template-card').querySelector('.template-title').textContent;
+                const url = this.dataset.url || '#';
+                // alert(`正在预览模板: ${templateName}`);
+                window.open(url, '_blank');
+            });
+        });
+        
+        document.querySelectorAll('.btn-contact').forEach(button => {
+            button.addEventListener('click', function() {
+                const modal = document.getElementById('qr-modal');
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // 禁止页面滚动
+            });
+        });
+        
+        // 模态框关闭功能
+        const modal = document.getElementById('qr-modal');
+        const closeBtn = document.querySelector('.close');
+        
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // 恢复页面滚动
+        }
+        
+        closeBtn.addEventListener('click', closeModal);
+        
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

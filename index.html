@@ -3,840 +3,1540 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B2B企业官网模板库</title>
+    <title>SHOPAGG 外贸建站服务 - 源码交付 | 专为工厂打造，外贸建站全流程，一次交付长期拥有</title>
+    <meta name="description" content="不懂技术？没有团队？没关系。我们提供从建站到上线的一条龙服务，按您的要求定制页面图片、文字、视频、配色、布局，对接 PayPal 等收款方式，全部搞定。您只需要上传商品，即可开始运营！">
+    <meta name="keywords" content="外贸网站,网站制作,杭州制作网站,网站搭建,外贸独立站,跨境电商,跨境独立站">
+    
+    <!-- 引入 Bootstrap 5 CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.3.8/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 FontAwesome 图标 -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/7.0.1/css/all.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-color: #0b5ed7;
+            --primary-dark: #0a4bb4;
+            --secondary-color: #f8fafc;
+            --accent-color: #f59e0b;
+            --text-dark: #1f2937;
+            --text-muted: #6b7280;
+            --step-bg: #e0ecff;
+            --step-text: #1d4ed8;
+            --surface: #ffffff;
+            --soft-blue: #eef5ff;
+            --soft-amber: #fff3d6;
         }
-        
+
         body {
-            font-family: 'Microsoft YaHei', Arial, sans-serif;
-            background-color: #f5f7fa;
-            color: #333;
+            font-family: 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif;
+            color: var(--text-dark);
             line-height: 1.6;
+            background: linear-gradient(180deg, #f6f8fb 0%, #ffffff 40%, #f6f8fb 100%);
         }
-        
-        header {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 2rem 0;
-            text-align: center;
+
+        h1, h2, h3, h4 {
+            letter-spacing: 0.2px;
         }
-        
-        .header-content {
-            max-width: 1200px;
+
+        .section-kicker {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+            background: var(--soft-blue);
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .section-lead {
+            color: var(--text-muted);
+            max-width: 760px;
             margin: 0 auto;
-            padding: 0 20px;
         }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .filters {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .filter-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            align-items: center;
-        }
-        
-        .filter-item {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        label {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: #555;
-        }
-        
-        select, input {
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 200px;
-        }
-        
-        .templates-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .template-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .template-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        
-        .template-image {
-            width: 100%;
-            padding-bottom: 100%; /* 4:3 aspect ratio */
+
+        /* Hero Section */
+        .hero-section {
+            background:
+                radial-gradient(circle at 20% 20%, rgba(11, 94, 215, 0.35), transparent 45%),
+                linear-gradient(rgba(6, 24, 44, 0.88), rgba(6, 24, 44, 0.88)),
+                url('https://www.shopagg.com/wp-content/uploads/2026/02/photo-1497366216548-37526070297c.jpeg');
             background-size: cover;
             background-position: center;
-            position: relative;
-            height: 0;
-        }
-        
-        .template-tag {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff6b6b;
             color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            padding: 110px 0 90px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .template-info {
-            padding: 1.5rem;
-        }
-        
-        .template-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-        }
-        
-        .template-desc {
-            color: #7f8c8d;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-        
-        .template-features {
+
+        .hero-badges {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 12px;
+            justify-content: center;
+            margin: 60px 0;
         }
-        
-        .feature {
-            background: #e8f4fd;
-            color: #3498db;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-        }
-        
-        .template-actions {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        .btn {
-            padding: 0.6rem 1.2rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-preview {
-            background: #3498db;
-            color: white;
-        }
-        
-        .btn-preview:hover {
-            background: #2980b9;
-        }
-        
-        .btn-download {
-            background: #2ecc71;
-            color: white;
-        }
-        
-        .btn-download:hover {
-            background: #27ae60;
-        }
-        
-        /* 模态框样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.5);
-        }
-        
-        .modal-content {
-            background-color: #fefefe;
-            margin: 4% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 90%;
-            max-width: 400px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-        
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: -10px;
-        }
-        
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-        }
-        
-        .modal-content h2 {
-            margin-bottom: 15px;
-            color: #333;
-        }
-        
-        .modal-content img {
-            max-width: 100%;
-            height: auto;
-            margin: 15px 0;
-            border-radius: 4px;
-        }
-        
-        .modal-content p {
-            margin-top: 15px;
-            color: #666;
+
+        .badge-soft {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 999px;
             font-size: 0.9rem;
         }
-        
-        footer {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 3rem;
+
+        .hero-metrics {
+            margin-top: 36px;
         }
-        
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            padding: 18px 16px;
+            height: 100%;
+        }
+
+        .metric-value {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            margin-top: 60px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* General Card Styles */
+        .card {
+            border: none;
+            box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+            border-radius: 16px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: var(--soft-blue);
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+        }
+
+        .trust-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 26px 22px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+            height: 100%;
+        }
+
+        .trust-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .trust-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .pill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .pill-list span {
+            background: var(--soft-amber);
+            color: #92400e;
+            padding: 6px 12px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* System Features Detail Section */
+        .feature-detail-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .feature-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .feature-detail-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+
+        .icon-product { background: #eef2ff; color: #4f46e5; }
+        .icon-lang { background: #dbeafe; color: #2563eb; }
+        .icon-seo { background: #dcfce7; color: #16a34a; }
+        .icon-inquiry { background: #fef3c7; color: #d97706; }
+        .icon-theme { background: #fce7f3; color: #db2777; }
+        .icon-security { background: #cffafe; color: #0891b2; }
+
+        .feature-detail-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1f2937;
+        }
+
+        .feature-detail-desc {
+            font-size: 0.95rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* NEW: Process Flow Section */
+        .process-section {
+            padding: 80px 0;
+            background: #fff;
+        }
+
+        .process-step-card {
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .process-step-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 25px rgba(13, 110, 253, 0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 50px;
+            height: 50px;
+            background: var(--step-bg);
+            color: var(--step-text);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            z-index: 1;
+        }
+
+        .process-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .process-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1f2937;
+        }
+
+        .process-desc {
+            font-size: 0.9rem;
+            color: #6b7280;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        /* Pricing Table */
+        .pricing-section {
+            background-color: #f8f9fa;
+            padding: 80px 0;
+        }
+
+        .table-custom thead th {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 20px;
+            font-size: 1.2rem;
+            vertical-align: middle;
+            position: relative;
+            overflow: visible;
+        }
+
+        .recommend-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translate(35%, -35%);
+            z-index: 2;
+            white-space: nowrap;
+        }
+
+        .table-custom tbody tr:nth-child(even) {
+            background-color: rgba(0,0,0,0.02);
+        }
+
+        .table-custom td {
+            vertical-align: middle;
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .check-icon { color: #198754; font-weight: bold; }
+        .cross-icon { color: #dc3545; font-weight: bold; }
+
+        .price-tag {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        /* Contact Info */
+        .contact-info a { color: var(--text-dark); text-decoration: none; }
+        .contact-info i { width: 25px; color: var(--primary-color); }
+
+        .deliverable-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 0;
+        }
+
+        .deliverable-list li {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px dashed #e5e7eb;
+            color: var(--text-muted);
+        }
+
+        .deliverable-list li:last-child {
+            border-bottom: none;
+        }
+
+        .case-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+            height: 100%;
+        }
+
+        .case-card img {
+            border-radius: 12px;
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            margin-bottom: 16px;
+        }
+
+        .quote-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 12px 26px rgba(15, 23, 42, 0.08);
+            height: 100%;
+        }
+
+        .quote-card p {
+            color: var(--text-muted);
+        }
+
+        .cta-strip {
+            background: linear-gradient(120deg, #0b5ed7 0%, #0f3a75 100%);
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 32px;
+        }
+
+        .faq-item {
+            background: var(--surface);
+            border-radius: 14px;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            height: 100%;
+        }
+
+        .reveal {
+            animation: fadeUp 0.8s ease both;
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(18px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 省心建站 Highlight */
+        .highlight-section {
+            background: linear-gradient(135deg, #0a1628 0%, #0b3d91 50%, #0a4bb4 100%);
+            color: #fff;
+            padding: 90px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.15), transparent 60%);
+            pointer-events: none;
+        }
+
+        .highlight-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fbbf24;
+            line-height: 1;
+        }
+
+        .highlight-price small {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .highlight-price .unit {
+            font-size: 1.4rem;
+            color: #fbbf24;
+        }
+
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .highlight-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
+        }
+
+        .highlight-list li:last-child {
+            border-bottom: none;
+        }
+
+        .highlight-list li i {
+            color: #34d399;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .highlight-badge {
+            display: inline-block;
+            background: rgba(251, 191, 36, 0.15);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            color: #fbbf24;
+            padding: 4px 14px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        /* One-stop Service */
+        .onestop-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 28px 24px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+            text-align: center;
+            height: 100%;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .onestop-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .onestop-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
+        }
+
+        .onestop-card:hover::before {
+            opacity: 1;
+        }
+
+        .onestop-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin: 0 auto 18px;
+        }
+
+        .onestop-icon-blue { background: #dbeafe; color: #1d4ed8; }
+        .onestop-icon-green { background: #dcfce7; color: #16a34a; }
+        .onestop-icon-amber { background: #fef3c7; color: #d97706; }
+        .onestop-icon-rose { background: #fce7f3; color: #db2777; }
+        .onestop-icon-cyan { background: #cffafe; color: #0891b2; }
+        .onestop-icon-purple { background: #ede9fe; color: #7c3aed; }
+
+        /* Support Section */
+        .support-section {
+            background: linear-gradient(180deg, #f0f7ff 0%, #ffffff 100%);
+            padding: 80px 0;
+        }
+
+        .support-channel {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: var(--surface);
+            border-radius: 14px;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+            transition: all 0.3s;
+        }
+
+        .support-channel:hover {
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .support-channel-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        /* Navigation */
+        .navbar {
+            padding: 1rem 0;
+            background: #ffffff;
+            box-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
+            transition: all 0.3s;
+        }
+
+        .navbar-brand {
+            font-size: 1.25rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+        }
+
+        .navbar-brand:hover {
+            transform: translateY(-1px);
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            color: var(--text-dark) !important;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 70%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .dropdown-menu {
+            border: none;
+            box-shadow: 0 8px 25px rgba(15, 23, 42, 0.12);
+            border-radius: 12px;
+            padding: 0.75rem 0;
+            margin-top: 0.5rem;
+            min-width: 220px;
+        }
+
+        .dropdown-item {
+            padding: 0.6rem 1.25rem;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            transition: all 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background: var(--soft-blue);
+            color: var(--primary-dark);
+            padding-left: 1.5rem;
+        }
+
+        .dropdown-toggle::after {
+            vertical-align: 0.15em;
+            margin-left: 0.4em;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #212529;
+            color: white;
+            padding: 40px 0;
+        }
+
         @media (max-width: 768px) {
-            .templates-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .filter-group {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            select, input {
-                width: 100%;
-            }
+            .hero-title { font-size: 2rem; }
+            .table-responsive { font-size: 0.9rem; }
+            .process-step-card { margin-bottom: 20px; }
+            .feature-detail-card { margin-bottom: 20px; }
+            .metric-card { margin-bottom: 12px; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>B2B企业官网模板库</h1>
-            <p class="subtitle">专业的企业级网站模板，助力您的业务增长</p>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" style="font-style: italic;">
+                <i class="fas fa-layer-group text-primary"></i> SHOPAGG 建站服务
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            服务与优势
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#services"><i class="fas fa-cogs me-2 text-primary"></i>服务内容</a></li>
+                            <li><a class="dropdown-item" href="#features"><i class="fas fa-star me-2 text-primary"></i>核心优势</a></li>
+                            <li><a class="dropdown-item" href="#features-detail"><i class="fas fa-th-large me-2 text-primary"></i>系统功能</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#trust"><i class="fas fa-shield-alt me-2 text-primary"></i>信任保障</a></li>
+                            <li><a class="dropdown-item" href="#deliverables"><i class="fas fa-clipboard-list me-2 text-primary"></i>交付清单</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#process">建站流程</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#pricing">价格方案</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cases">案例展示</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">常见问题</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">联系我们</a></li>
+                    <li class="nav-item ms-3">
+                        <a href="https://www.shopagg.org/" target="_blank" class="btn btn-outline-primary btn-sm px-3">开源官网</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </header>
-    
-    <div class="container">
-        <div class="filters">
-            <div class="filter-group">
-                <div class="filter-item">
-                    <label for="industry">行业分类</label>
-                    <select id="industry">
-                        <option value="">全部行业</option>
-                        <option value="tech">科技行业</option>
-                        <option value="finance">金融行业</option>
-                        <option value="healthcare">医疗行业</option>
-                        <option value="logistics">物流行业</option>
-                        <option value="energy">能源行业</option>
-                        <option value="travel">旅游行业</option>
-                        <option value="education">教育行业</option>
-                        <option value="construction">建筑行业</option>
-                        <option value="service">服务行业</option>
-                        <option value="mechanical">机械行业</option>
-                    </select>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">省心建站，轻松开启跨境电商之路</h1>
+            <p class="hero-subtitle">仅需 <strong style="color: #fbbf24; font-size: 1.5rem;">3999 元</strong>，赠送一年服务器 + 域名 · 一条龙交付 · 上传商品即可运营<br>基于自研 ShopAgg 开源系统 · 100% 源码交付 · 拒绝隐形消费</p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="#highlight" class="btn btn-warning btn-lg px-4 fw-bold" style="color: #1f2937;"><i class="fas fa-bolt me-2"></i>了解省心建站</a>
+                <a href="#pricing" class="btn btn-primary btn-lg px-4">查看报价方案</a>
+                <a href="https://demo.shopagg.org/" target="_blank" class="btn btn-outline-light btn-lg px-4">查看模版库</a>
+            </div>
+            <div class="hero-badges">
+                <span class="badge-soft"><i class="fas fa-check-circle me-2"></i>源码交付 + 可二次开发</span>
+                <span class="badge-soft"><i class="fas fa-check-circle me-2"></i>Google 友好架构</span>
+                <span class="badge-soft"><i class="fas fa-check-circle me-2"></i>全渠道询盘打通</span>
+                <span class="badge-soft"><i class="fas fa-check-circle me-2"></i>可签合同 / 可开发票</span>
+            </div>
+            <div class="hero-metrics mt-4">
+                <div class="row g-3 justify-content-center">
+                    <div class="col-6 col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-value">100%</div>
+                            <div class="metric-label">源码交付与数据归属</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-value">10+</div>
+                            <div class="metric-label">询盘渠道统一接入</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-value">104</div>
+                            <div class="metric-label">可选语言覆盖市场</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="metric-card">
+                            <div class="metric-value">0</div>
+                            <div class="metric-label">隐形收费 / 绑定限制</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 省心建站 Highlight Section -->
+    <section id="highlight" class="highlight-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="highlight-badge"><i class="fas fa-fire me-2"></i>省心建站 · 一条龙服务</span>
+                    <h2 class="fw-bold mt-3 mb-3" style="font-size: 2.2rem;">选择 SHOPAGG 省心建站<br>轻松拥有跨境电商独立站</h2>
+                    <p style="color: rgba(255,255,255,0.75); font-size: 1.1rem; line-height: 1.8; margin-bottom: 28px;">
+                        不懂技术？没有团队？没关系。我们提供从建站到上线的一条龙服务，按您的要求定制页面图片、文字、视频、配色、布局，对接 PayPal 等收款方式，全部搞定。<strong style="color: #fff;">您只需要上传商品，即可开始运营！</strong>
+                    </p>
+                    <div class="highlight-price mb-3">
+                        <small>仅需</small> ¥3999 <span class="unit">起</span>
+                    </div>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-bottom: 24px;">首年费用已包含服务器 + 域名，无隐形消费</p>
+                    <a href="#contact" class="btn btn-warning btn-lg px-4 fw-bold" style="color: #1f2937;"><i class="fas fa-headset me-2"></i>立即咨询，开始建站</a>
+                </div>
+                <div class="col-lg-6">
+                    <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 32px;">
+                        <h4 class="fw-bold mb-4" style="color: #fbbf24;"><i class="fas fa-gift me-2"></i>省心建站包含什么？</h4>
+                        <ul class="highlight-list">
+                            <li><i class="fas fa-check-circle"></i> 按需定制页面：图片、文字、视频、配色、布局全覆盖</li>
+                            <li><i class="fas fa-check-circle"></i> 赠送一年服务器 + 域名（首年免费）</li>
+                            <li><i class="fas fa-check-circle"></i> 免费SSL安全证书和全球CDN安全加速服务</li>
+                            <li><i class="fas fa-check-circle"></i> 多语言自动翻译，覆盖全球 104 个市场</li>
+                            <li><i class="fas fa-check-circle"></i> SEO 基础优化，让 Google 更容易收录</li>
+                            <li><i class="fas fa-check-circle"></i> WhatsApp / Facebook 等 10+ 询盘渠道接入</li>
+                            <li><i class="fas fa-check-circle"></i> 100% 源码交付，数据完全归属于您</li>
+                            <li><i class="fas fa-check-circle"></i> 完成后您只需上传商品，即可开始卖货！</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 一条龙服务 Section -->
+    <section id="onestop" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-kicker">一条龙服务</span>
+                <h2 class="fw-bold">我们帮您搞定一切，您只需专注卖货</h2>
+                <p class="section-lead">从域名注册到收款对接，从页面设计到SEO配置，全程由我们完成，交付即可运营。</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="onestop-card">
+                        <div class="onestop-icon onestop-icon-blue"><i class="fas fa-globe"></i></div>
+                        <h4>域名 + 服务器</h4>
+                        <p class="text-muted">帮您注册域名、部署云服务器，首年费用全包，无需您操心技术环境。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="onestop-card">
+                        <div class="onestop-icon onestop-icon-rose"><i class="fas fa-palette"></i></div>
+                        <h4>页面定制设计</h4>
+                        <p class="text-muted">按您的品牌与产品需求，定制图片、文案、视频、配色和页面布局，不套模版。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="onestop-card">
+                        <div class="onestop-icon onestop-icon-green"><i class="fas fa-credit-card"></i></div>
+                        <h4>收款通道对接</h4>
+                        <p class="text-muted">帮您对接 PayPal、Stripe、支付宝、微信支付等主流收款方式，到手即可收款。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="onestop-card">
+                        <div class="onestop-icon onestop-icon-amber"><i class="fas fa-search-dollar"></i></div>
+                        <h4>SEO 基础配置</h4>
+                        <p class="text-muted">标题、描述、网站地图、结构化标记等基础 SEO 全部帮您设好，符合 Google 收录标准。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="onestop-card">
+                        <div class="onestop-icon onestop-icon-cyan"><i class="fas fa-comments"></i></div>
+                        <h4>社媒 & 询盘接入</h4>
+                        <p class="text-muted">WhatsApp、Facebook、Email 等 10+ 渠道一键配置，不漏掉任何客户咨询。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="onestop-card">
+                        <div class="onestop-icon onestop-icon-purple"><i class="fas fa-box-open"></i></div>
+                        <h4>您只需上传商品</h4>
+                        <p class="text-muted">所有技术与设计工作完成后交付，您只需要登录后台上传商品，即可开始全球销售。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 一对一技术支持 Section -->
+    <section class="support-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <span class="section-kicker">专属技术支持</span>
+                    <h2 class="fw-bold mb-3">一对一技术支持<br>遇到问题随时解决</h2>
+                    <p class="text-muted" style="font-size: 1.05rem; line-height: 1.8;">
+                        建站只是开始，后续运营中遇到任何问题，我们都能及时响应。提供微信、电话、远程协助等多种沟通方式，确保您的网站始终正常运行。
+                    </p>
+                    <div class="mt-4">
+                        <a href="#contact" class="btn btn-primary btn-lg px-4"><i class="fas fa-phone-alt me-2"></i>获取专属支持</a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="support-channel">
+                                <div class="support-channel-icon" style="background: #dcfce7; color: #16a34a;"><i class="fab fa-weixin"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="font-size: 1rem;">微信沟通</h5>
+                                    <p class="text-muted mb-0" style="font-size: 0.9rem;">添加专属微信客服，工作时间随时沟通</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="support-channel">
+                                <div class="support-channel-icon" style="background: #dbeafe; color: #2563eb;"><i class="fas fa-phone-alt"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="font-size: 1rem;">电话支持</h5>
+                                    <p class="text-muted mb-0" style="font-size: 0.9rem;">紧急问题直接电话，快速响应立即处理</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="support-channel">
+                                <div class="support-channel-icon" style="background: #fef3c7; color: #d97706;"><i class="fas fa-desktop"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="font-size: 1rem;">远程协助</h5>
+                                    <p class="text-muted mb-0" style="font-size: 0.9rem;">远程桌面直接操作，复杂问题当面解决</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="support-channel">
+                                <div class="support-channel-icon" style="background: #ede9fe; color: #7c3aed;"><i class="fas fa-file-alt"></i></div>
+                                <div>
+                                    <h5 class="fw-bold mb-1" style="font-size: 1rem;">文档 & 教程</h5>
+                                    <p class="text-muted mb-0" style="font-size: 0.9rem;">提供操作手册与视频教程，自学也轻松</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 p-3" style="background: var(--soft-amber); border-radius: 12px;">
+                        <p class="mb-0 fw-bold" style="color: #92400e;"><i class="fas fa-shield-alt me-2"></i>服务承诺：两个版本均提供 1 年技术支持，续费自动延期，问题响应不超过 24 小时。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-kicker">服务内容</span>
+                <h2 class="fw-bold">外贸建站全流程，一次交付长期拥有</h2>
+                <p class="section-lead">我们不只是搭页面，更从品牌定位、网站架构、内容规划到上线维护全程参与，确保独立站可被搜到、能转化、能持续运营。</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card reveal" style="animation-delay: 0.05s;">
+                        <div class="icon-circle"><i class="fas fa-sitemap"></i></div>
+                        <h4>建站策略与架构</h4>
+                        <p>梳理产品线和目标市场，规划栏目结构、页面层级、URL 规则与站内导航，降低跳出率。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card reveal" style="animation-delay: 0.1s;">
+                        <div class="icon-circle"><i class="fas fa-pen-nib"></i></div>
+                        <h4>视觉与内容表达</h4>
+                        <p>按行业属性定制视觉风格，支持多语言内容组织、产品结构化展示与核心卖点强化。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card reveal" style="animation-delay: 0.15s;">
+                        <div class="icon-circle"><i class="fas fa-laptop-code"></i></div>
+                        <h4>功能与系统集成</h4>
+                        <p>询盘表单、即时聊天、邮件通知、社媒入口、产品管理后台，一体化提升效率。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card reveal" style="animation-delay: 0.2s;">
+                        <div class="icon-circle"><i class="fas fa-cloud-upload-alt"></i></div>
+                        <h4>上线与持续服务</h4>
+                        <p>部署上线、基础 SEO 配置、数据备份与安全加固，确保交付后可长期稳定运营。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h5 class="fw-bold">适合行业</h5>
+                <div class="pill-list">
+                    <span>机械设备</span>
+                    <span>电子产品</span>
+                    <span>家居建材</span>
+                    <span>五金工具</span>
+                    <span>日用消费品</span>
+                    <span>服饰箱包</span>
+                    <span>汽配配件</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Advantages -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">为什么选择 ShopAgg 建站？</h2>
+                <p class="text-muted">解决传统建站“贵、慢、难”的痛点</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <div class="feature-icon"><i class="fas fa-code"></i></div>
+                        <h4>100% 源码交付</h4>
+                        <p class="text-muted">不同于 SaaS 租赁模式，我们提供完整源代码。网站是您的私有资产，数据自主可控，无后顾之忧。</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+                        <h4>SEO 基因植入</h4>
+                        <p class="text-muted">系统底层符合 Google 收录标准，自动 SEO 优化，结构化标记，让您的产品更容易被海外买家搜索到。</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card p-4 text-center">
+                        <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                        <h4>全渠道询盘集成</h4>
+                        <p class="text-muted">内置 WhatsApp, Facebook, Email 等 10+ 种即时通讯工具，不错过任何一个潜在客户的咨询。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Features Detail Section -->
+    <section id="features-detail" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3">功能特性</span>
+                <h2 class="fw-bold">为外贸企业量身打造</h2>
+                <p class="text-muted">从产品展示到询单管理，一站式解决 B2B 企业官网需求</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- 产品展示 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon icon-product"><i class="fas fa-box-open"></i></div>
+                        <h4 class="feature-detail-title">产品展示</h4>
+                        <p class="feature-detail-desc">支持多图轮播、阶梯定价、规格参数，完美展示您的产品优势</p>
+                    </div>
+                </div>
+                <!-- 多语言支持 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon icon-lang"><i class="fas fa-language"></i></div>
+                        <h4 class="feature-detail-title">多语言支持</h4>
+                        <p class="feature-detail-desc">内置中英文切换，可轻松扩展更多语言，触达全球客户</p>
+                    </div>
+                </div>
+                <!-- SEO 优化 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon icon-seo"><i class="fas fa-search"></i></div>
+                        <h4 class="feature-detail-title">SEO 优化</h4>
+                        <p class="feature-detail-desc">伪静态路由、自动 Sitemap、独立 TDK 设置，提升搜索排名</p>
+                    </div>
+                </div>
+                <!-- 询单管理 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon icon-inquiry"><i class="fas fa-envelope-open-text"></i></div>
+                        <h4 class="feature-detail-title">询单管理</h4>
+                        <p class="feature-detail-desc">产品询单、联系留言统一管理，状态跟踪不遗漏商机</p>
+                    </div>
+                </div>
+                <!-- 主题切换 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon icon-theme"><i class="fas fa-palette"></i></div>
+                        <h4 class="feature-detail-title">主题切换</h4>
+                        <p class="feature-detail-desc">支持多主题系统，快速定制企业专属风格</p>
+                    </div>
+                </div>
+                <!-- 安全可靠 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="feature-detail-card">
+                        <div class="feature-detail-icon icon-security"><i class="fas fa-shield-alt"></i></div>
+                        <h4 class="feature-detail-title">安全可靠</h4>
+                        <p class="feature-detail-desc">CSRF 防护、密码加密、权限控制，保障数据安全</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section id="trust" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-kicker">信任保障</span>
+                <h2 class="fw-bold">让交付可验证，让合作更安心</h2>
+                <p class="section-lead">我们把“交付标准”和“服务边界”写清楚，让您清晰知道每一笔费用对应的价值与结果。</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card">
+                        <div class="icon-circle"><i class="fas fa-file-code"></i></div>
+                        <h4>源码与文档完整交付</h4>
+                        <p>提供前后台源代码、部署文档与运维说明，交付后可自由迁移和二次开发。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card">
+                        <div class="icon-circle"><i class="fas fa-receipt"></i></div>
+                        <h4>费用透明可签合同</h4>
+                        <p>报价清单化、合同明确交付范围与周期，避免追加与隐形消费。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card">
+                        <div class="icon-circle"><i class="fas fa-shield-alt"></i></div>
+                        <h4>安全合规与数据归属</h4>
+                        <p>权限控制、备份策略与安全加固方案，让数据归属明确、可控可追溯。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="trust-card">
+                        <div class="icon-circle"><i class="fas fa-clipboard-check"></i></div>
+                        <h4>阶段验收与可视沟通</h4>
+                        <p>设计、开发、测试分阶段验收，进度可视化，确保交付符合预期。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deliverables -->
+    <section id="deliverables" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-kicker">交付清单</span>
+                <h2 class="fw-bold">一次交付，长期可运营</h2>
+                <p class="section-lead">交付内容覆盖网站、后台、数据、SEO 与运维，确保上线即可获得稳定运行能力。</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="trust-card h-100">
+                        <h4 class="fw-bold mb-3">技术交付</h4>
+                        <ul class="deliverable-list">
+                            <li><i class="fas fa-check-circle text-success mt-1"></i> 前台与后台完整源代码</li>
+                            <li><i class="fas fa-check-circle text-success mt-1"></i> 服务器部署与上线说明文档</li>
+                            <li><i class="fas fa-check-circle text-success mt-1"></i> 网站结构与 URL 规范说明</li>
+                            <li><i class="fas fa-check-circle text-success mt-1"></i> 数据备份与恢复指引</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="trust-card h-100">
+                        <h4 class="fw-bold mb-3">运营交付</h4>
+                        <ul class="deliverable-list">
+                            <li><i class="fas fa-check-circle text-success mt-1"></i> SEO 基础设置与站点地图</li>
+                            <li><i class="fas fa-check-circle text-success mt-1"></i> 询盘通知与线索管理配置</li>
+                            <li><i class="fas fa-check-circle text-success mt-1"></i> 广告投放基础入门指南</li>
+                            <li><i class="fas fa-check-circle text-success mt-1"></i> 运营使用说明与培训指引</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: Process Flow Section -->
+    <section id="process" class="process-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3">服务流程</span>
+                <h2 class="fw-bold">六步打造您的全球品牌官网</h2>
+                <p class="text-muted">制定 Google 友好的独立站结构，让页面更容易被 Google 收录，轻松获取全球询盘</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Step 1 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="process-step-card">
+                        <div class="step-number">01</div>
+                        <div class="process-icon"><i class="fas fa-handshake"></i></div>
+                        <h4 class="process-title">需求沟通</h4>
+                        <p class="process-desc">了解产品及行业背景，根据您提出的建站构思和想法，帮助您确定合适的建站方案和套餐，签订合同。</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="process-step-card">
+                        <div class="step-number">02</div>
+                        <div class="process-icon"><i class="fas fa-sitemap"></i></div>
+                        <h4 class="process-title">策划框架</h4>
+                        <p class="process-desc">架构规划，确认符合产品属性的 UI 设计方向；协助您准备建站资料，素材要求我们会提供说明文档。</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="process-step-card">
+                        <div class="step-number">03</div>
+                        <div class="process-icon"><i class="fas fa-paint-brush"></i></div>
+                        <h4 class="process-title">页面设计</h4>
+                        <p class="process-desc">按照您的想法或我们提供的建议设计前台界面；完成后提交确认；确认后进行产品发布、移动端调整和速度优化。</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="process-step-card">
+                        <div class="step-number">04</div>
+                        <div class="process-icon"><i class="fas fa-vial"></i></div>
+                        <h4 class="process-title">测试阶段</h4>
+                        <p class="process-desc">上线前对整体页面、速度和各个终端设备进行测试；如有发现问题及时解决，防止上线后因漏洞造成的损失。</p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="process-step-card">
+                        <div class="step-number">05</div>
+                        <div class="process-icon"><i class="fas fa-rocket"></i></div>
+                        <h4 class="process-title">网站上线</h4>
+                        <p class="process-desc">测试成功后，独立站上线交付。包含数据备份，核心程序升级更新，插件升级更新，优化独立站速度等维护工作。</p>
+                    </div>
                 </div>
                 
-                <div class="filter-item">
-                    <label for="style">设计风格</label>
-                    <select id="style">
-                        <option value="">全部风格</option>
-                        <option value="modern">现代简约</option>
-                        <option value="professional">商务专业</option>
-                        <option value="creative">创意设计</option>
-                        <option value="corporate">企业集团</option>
-                    </select>
-                </div>
-                
-                <div class="filter-item">
-                    <label for="search">搜索模板</label>
-                    <input type="text" id="search" placeholder="输入关键词搜索...">
+                <!-- Step 6 (Optional filler or summary) -->
+                <div class="col-md-4 col-sm-6">
+                    <div class="process-step-card" style="background: #f0f7ff; border-color: #bfdbfe;">
+                        <div class="step-number" style="background: #bfdbfe; color: #1e40af;"><i class="fas fa-check"></i></div>
+                        <div class="process-icon"><i class="fas fa-chart-line"></i></div>
+                        <h4 class="process-title">持续获客</h4>
+                        <p class="process-desc">网站只是开始。凭借 Google 友好的架构和 SEO 基础，配合您的推广，持续获取高质量全球询盘。</p>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="templates-grid">
-            <!-- 模板卡片1 -->
-            <div class="template-card" data-industry="mechanical" data-style="modern" data-title="通用机械制造企业官网模板" data-desc="面向机械制造企业的官网模板，突出产品能力、生产实力与行业案例。" data-id="001">
-                <div class="template-image" style="background-image: url('images/demo/001/main-800x800.png')">
-                    <span class="template-tag">热门</span>
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">通用机械制造企业官网模板</h3>
-                    <p class="template-desc">面向机械制造企业的官网模板，突出产品能力、生产实力与行业案例。</p>
-                    <div class="template-features">
-                        <span class="feature">设备参数展示</span>
-                        <span class="feature">工厂实力呈现</span>
-                        <span class="feature">多语言支持</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-001/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
+    </section>
+
+    <!-- Case Studies -->
+    <section id="cases" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-kicker">案例展示</span>
+                <h2 class="fw-bold">更贴近海外买家的官网表现方式</h2>
+                <p class="section-lead">以下为展示模板，可替换为您的真实案例与行业素材，支持多风格定制。</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="case-card">
+                        <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=800&q=80" alt="工业机械案例">
+                        <h4>工业设备类官网</h4>
+                        <p class="text-muted">突出核心型号与应用场景，强化参数对比与询盘路径。</p>
                     </div>
                 </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="case-card">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" alt="电子产品案例">
+                        <h4>电子产品类官网</h4>
+                        <p class="text-muted">强调技术优势与认证体系，兼顾产品目录与解决方案入口。</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="case-card">
+                        <img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?auto=format&fit=crop&w=800&q=80" alt="家居建材案例">
+                        <h4>家居建材类官网</h4>
+                        <p class="text-muted">以场景化展示和品牌故事建立信任，提升询盘转化。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Table Section -->
+    <section id="pricing" class="pricing-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">透明报价，按需选择</h2>
+                <p class="text-muted">首年费用包含主机与域名，无隐形消费</p>
+            </div>
+
+            <div class="table-responsive bg-white shadow rounded">
+                <table class="table table-custom table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th style="width: 25%;">功能大类 / 详细</th>
+                            <th style="width: 15%;" class="text-center">标准版</th>
+                            <th style="width: 15%;" class="text-center">
+                                高级版
+                                <span class="position-absolute translate-middle badge rounded-pill bg-danger">推荐</span>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 费用 -->
+                        <tr>
+                            <td><strong>费用</strong><br><small class="text-muted">首年全包费用 (含主机 + 域名)</small></td>
+                            <td class="text-center"><span class="price-tag">3999<span style="font-size:1rem">元</span></span></td>
+                            <td class="text-center bg-light"><span class="price-tag">6999<span style="font-size:1rem">元</span></span></td>
+                        </tr>
+                        <tr>
+                            <td>网站域名续费价格</td>
+                            <td colspan="2" class="text-center text-muted">99 元/年</td>
+                        </tr>
+                        <tr>
+                            <td>网站主机续费价格</td>
+                            <td colspan="2" class="text-center text-muted">1668 元/年</td>
+                        </tr>
+
+                        <!-- 基础 -->
+                        <tr class="table-secondary"><td colspan="3" class="fw-bold">基础功能</td></tr>
+                        <tr>
+                            <td>多语言管理 (104 种任选)</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>多货币切换</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td><strong>提供全部源代码</strong></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>多终端自适应 (手机 + 平板 + 电脑)</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>可选择模版数量</td>
+                            <td class="text-center">30 个</td>
+                            <td class="text-center fw-bold">60 个</td>
+                        </tr>
+
+                        <!-- 服务器 -->
+                        <tr class="table-secondary"><td colspan="3" class="fw-bold">服务器与安全</td></tr>
+                        <tr>
+                            <td>SSL 安全加密证书</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Cloudflare 全球 CDN 加速</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>自动备份/恢复</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>地区可选 (香港/美国)</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+
+                        <!-- SEO -->
+                        <tr class="table-secondary"><td colspan="3" class="fw-bold">SEO 优化</td></tr>
+                        <tr>
+                            <td>自动 SEO 优化 & 网站地图</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>SEO 评分 & 结构化标记</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+
+                        <!-- 询盘 -->
+                        <tr class="table-secondary"><td colspan="3" class="fw-bold">询盘与沟通</td></tr>
+                        <tr>
+                            <td>邮件询单 & 网页在线聊天</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>WhatsApp, Facebook, LINE 等社交聊天</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>WeChat, Telegram, Teams 等集成</td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+
+                        <!-- 附加服务 (差异点) -->
+                        <tr class="table-secondary"><td colspan="3" class="fw-bold">高级增值服务 (仅高级版)</td></tr>
+                        <tr>
+                            <td>代上传商品</td>
+                            <td class="text-center"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="text-center fw-bold text-success">20 个</td>
+                        </tr>
+                        <tr>
+                            <td>网站 Logo 简单设计</td>
+                            <td class="text-center"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Google/Facebook/Twitter 推广代投</td>
+                            <td class="text-center"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>SEO 文章代写</td>
+                            <td class="text-center"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="text-center fw-bold text-success">10 篇</td>
+                        </tr>
+                        <tr>
+                            <td>搜索优化专业建议指导 & 诊断修复</td>
+                            <td class="text-center"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+
+                        <!-- 企业邮箱 (差异点) -->
+                        <tr class="table-secondary"><td colspan="3" class="fw-bold">企业邮箱 (仅高级版)</td></tr>
+                        <tr>
+                            <td>邮箱账号 (5 个)</td>
+                            <td class="text-center"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>支持绑定域名 & 邮件加密</td>
+                            <td class="text-center"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                        <tr>
+                            <td>垃圾邮件过滤 & IMAP/POP3 功能</td>
+                            <td class="text-center"><i class="fas fa-times cross-icon"></i></td>
+                            <td class="text-center"><i class="fas fa-check check-icon"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
             
-            <!-- 模板卡片2 -->
-            <div class="template-card" data-industry="service" data-style="professional" data-title="食品加工企业官网模板" data-desc="适用于食品加工与供应企业，重点展示公司资质、工厂产线与产品能力。">
-                <div class="template-image" style="background-image: url('images/demo/002/main-800x800.png')">
-                    <span class="template-tag">推荐</span>
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">食品加工企业官网模板</h3>
-                    <p class="template-desc">适用于食品加工与供应企业，重点展示公司资质、工厂产线与产品能力。</p>
-                    <div class="template-features">
-                        <span class="feature">产品系列展示</span>
-                        <span class="feature">工厂产线介绍</span>
-                        <span class="feature">在线询盘入口</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-002/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
+            <div class="text-center mt-4">
+                <p class="text-muted small">* 售后服务：两个版本均提供 1 年技术支持，续费自动延期。高级版性价比更高，包含代运营与邮箱服务。</p>
+                <a href="#contact" class="btn btn-primary btn-lg mt-2">立即咨询</a>
             </div>
-
-            <!-- 模板卡片3 -->
-            <div class="template-card" data-industry="mechanical" data-style="professional" data-title="钢铁制造企业官网模板" data-desc="适配钢铁与金属加工企业，清晰展示产能、设备与工程服务能力。">
-                <div class="template-image" style="background-image: url('images/demo/003/main-800x800.png')">
-                    <span class="template-tag">推荐</span>
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">钢铁制造企业官网模板</h3>
-                    <p class="template-desc">适配钢铁与金属加工企业，清晰展示产能、设备与工程服务能力。</p>
-                    <div class="template-features">
-                        <span class="feature">产能与工艺介绍</span>
-                        <span class="feature">工程案例展示</span>
-                        <span class="feature">资质证书模块</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-003/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-             <!-- 模板卡片4 -->
-            <div class="template-card" data-industry="energy" data-style="professional" data-title="新能源企业集团官网模板" data-desc="适用于风电、储能与清洁能源企业，强化技术方案与项目成果展示。">
-                <div class="template-image" style="background-image: url('images/demo/004/main-800x800.png')">
-                    <span class="template-tag">推荐</span>
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">新能源企业集团官网模板</h3>
-                    <p class="template-desc">适用于风电、储能与清洁能源企业，强化技术方案与项目成果展示。</p>
-                    <div class="template-features">
-                        <span class="feature">能源解决方案</span>
-                        <span class="feature">项目案例地图</span>
-                        <span class="feature">ESG内容展示</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-004/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-             <!-- 模板卡片5 -->
-            <div class="template-card" data-industry="construction" data-style="creative" data-title="装修工程企业官网模板" data-desc="聚焦企业实力与施工能力展示，适用于装修设计与工程服务公司。">
-                <div class="template-image" style="background-image: url('images/demo/005/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">装修工程企业官网模板</h3>
-                    <p class="template-desc">聚焦企业实力与施工能力展示，适用于装修设计与工程服务公司。</p>
-                    <div class="template-features">
-                        <span class="feature">项目作品集</span>
-                        <span class="feature">施工流程说明</span>
-                        <span class="feature">在线询盘入口</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-005/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-             <!-- 模板卡片6 -->
-            <div class="template-card" data-industry="tech" data-style="modern" data-title="无人机品牌宣传网站模板" data-desc="面向无人机品牌与渠道商，适合展示产品矩阵、应用场景与售后服务。">
-                <div class="template-image" style="background-image: url('images/demo/006/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">无人机品牌宣传网站模板</h3>
-                    <p class="template-desc">面向无人机品牌与渠道商，适合展示产品矩阵、应用场景与售后服务。</p>
-                    <div class="template-features">
-                        <span class="feature">应用场景展示</span>
-                        <span class="feature">产品参数对比</span>
-                        <span class="feature">售后支持中心</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-006/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-              <!-- 模板卡片7 -->
-            <div class="template-card" data-industry="tech" data-style="modern" data-title="智能手表配件工厂网站模板" data-desc="适用于智能穿戴配件厂商，突出供应能力、定制服务和批发合作。">
-                <div class="template-image" style="background-image: url('images/demo/007/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">智能手表配件工厂网站模板</h3>
-                    <p class="template-desc">适用于智能穿戴配件厂商，突出供应能力、定制服务和批发合作。</p>
-                    <div class="template-features">
-                        <span class="feature">配件目录中心</span>
-                        <span class="feature">OEM/ODM定制</span>
-                        <span class="feature">批发询盘表单</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-007/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- 模板卡片8 -->
-            <div class="template-card" data-industry="tech" data-style="modern" data-title="手机数码企业官网模板" data-desc="适用于手机与数码制造企业，突出公司实力、产品矩阵与供货能力。">
-                <div class="template-image" style="background-image: url('images/demo/008/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">手机数码企业官网模板</h3>
-                    <p class="template-desc">适用于手机与数码制造企业，突出公司实力、产品矩阵与供货能力。</p>
-                    <div class="template-features">
-                        <span class="feature">产品矩阵展示</span>
-                        <span class="feature">工厂能力介绍</span>
-                        <span class="feature">在线询盘表单</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-008/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 模板卡片9 -->
-            <div class="template-card" data-industry="tech" data-style="professional" data-title="3C数码电子企业官网模板" data-desc="适配3C电子品牌官网，突出产品性能、渠道合作与技术支持服务。">
-                <div class="template-image" style="background-image: url('images/demo/009/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">3C数码电子企业官网模板</h3>
-                    <p class="template-desc">适配3C电子品牌官网，突出产品性能、渠道合作与技术支持服务。</p>
-                    <div class="template-features">
-                        <span class="feature">产品参数详情</span>
-                        <span class="feature">渠道合作政策</span>
-                        <span class="feature">技术支持文档</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-009/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 模板卡片10 -->
-            <div class="template-card" data-industry="service" data-style="creative" data-title="运动健康机构官网模板" data-desc="适用于运动健康服务机构，重点展示机构资质、服务体系与团队能力。">
-                <div class="template-image" style="background-image: url('images/demo/010/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">运动健康机构官网模板</h3>
-                    <p class="template-desc">适用于运动健康服务机构，重点展示机构资质、服务体系与团队能力。</p>
-                    <div class="template-features">
-                        <span class="feature">服务体系展示</span>
-                        <span class="feature">团队资质介绍</span>
-                        <span class="feature">合作咨询入口</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-010/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- 模板卡片11 -->
-            <div class="template-card" data-industry="construction" data-style="professional" data-title="房屋建筑维修公司官网模板" data-desc="适用于建筑维修与工程服务企业，突出服务项目、施工流程与保障体系。">
-                <div class="template-image" style="background-image: url('images/demo/011/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">房屋建筑维修公司官网模板</h3>
-                    <p class="template-desc">适用于建筑维修与工程服务企业，突出服务项目、施工流程与保障体系。</p>
-                    <div class="template-features">
-                        <span class="feature">维修服务清单</span>
-                        <span class="feature">工程案例图库</span>
-                        <span class="feature">快速报修入口</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-011/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- 模板卡片12 -->
-            <div class="template-card" data-industry="service" data-style="professional" data-title="咖啡原料与设备供应商网站模板" data-desc="适合咖啡豆、咖啡机及配套原料供应商，强化产品体系与合作服务展示。">
-                <div class="template-image" style="background-image: url('images/demo/012/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">咖啡原料与设备供应商网站模板</h3>
-                    <p class="template-desc">适合咖啡豆、咖啡机及配套原料供应商，强化产品体系与合作服务展示。</p>
-                    <div class="template-features">
-                        <span class="feature">原料与设备目录</span>
-                        <span class="feature">批量采购方案</span>
-                        <span class="feature">行业合作案例</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-012/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 模板卡片13 -->
-            <div class="template-card" data-industry="service" data-style="professional" data-title="香料供应商企业宣传模板" data-desc="面向食品与餐饮产业链香料供应商，突出品质标准、产地优势与交付能力。">
-                <div class="template-image" style="background-image: url('images/demo/013/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">香料供应商企业宣传模板</h3>
-                    <p class="template-desc">面向食品与餐饮产业链香料供应商，突出品质标准、产地优势与交付能力。</p>
-                    <div class="template-features">
-                        <span class="feature">香料品类中心</span>
-                        <span class="feature">质量标准说明</span>
-                        <span class="feature">供应链交付保障</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-013/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-              <!-- 模板卡片14 -->
-            <div class="template-card" data-industry="service" data-style="professional" data-title="牛排食材供应商官网模板" data-desc="适用于牛排及冷链食材供应企业，突出产品等级、仓配能力与合作客户。">
-                <div class="template-image" style="background-image: url('images/demo/014/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">牛排食材供应商官网模板</h3>
-                    <p class="template-desc">适用于牛排及冷链食材供应企业，突出产品等级、仓配能力与合作客户。</p>
-                    <div class="template-features">
-                        <span class="feature">产品等级说明</span>
-                        <span class="feature">冷链配送服务</span>
-                        <span class="feature">餐饮客户案例</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-014/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- 模板卡片15 -->
-            <div class="template-card" data-industry="energy" data-style="professional" data-title="光伏太阳能工厂官网模板" data-desc="适配光伏制造与新能源项目企业，展示组件能力、技术路线与项目落地成果。">
-                <div class="template-image" style="background-image: url('images/demo/015/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">光伏太阳能工厂官网模板</h3>
-                    <p class="template-desc">适配光伏制造与新能源项目企业，展示组件能力、技术路线与项目落地成果。</p>
-                    <div class="template-features">
-                        <span class="feature">组件产品矩阵</span>
-                        <span class="feature">项目应用案例</span>
-                        <span class="feature">技术白皮书下载</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-015/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-            <!-- 模板卡片16 -->
-            <div class="template-card" data-industry="logistics" data-style="professional" data-title="国际物流运输公司官网模板" data-desc="适用于跨境物流企业，支持路线展示、服务类型说明与运输时效承诺。">
-                <div class="template-image" style="background-image: url('images/demo/016/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">国际物流运输公司官网模板</h3>
-                    <p class="template-desc">适用于跨境物流企业，支持路线展示、服务类型说明与运输时效承诺。</p>
-                    <div class="template-features">
-                        <span class="feature">全球线路网络</span>
-                        <span class="feature">运输时效查询</span>
-                        <span class="feature">在线询价系统</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-016/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- 模板卡片17 -->
-            <div class="template-card" data-industry="service" data-style="professional" data-title="汽车销售服务机构官网模板" data-desc="适合汽车销售与售后服务门店，突出车型展示、试驾预约与门店信息。">
-                <div class="template-image" style="background-image: url('images/demo/017/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">汽车销售服务机构官网模板</h3>
-                    <p class="template-desc">适合汽车销售与售后服务门店，突出车型展示、试驾预约与门店信息。</p>
-                    <div class="template-features">
-                        <span class="feature">车型信息中心</span>
-                        <span class="feature">试驾预约入口</span>
-                        <span class="feature">门店服务介绍</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-017/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <!-- 模板卡片18 -->
-            <div class="template-card" data-industry="mechanical" data-style="professional" data-title="农业机械设备企业网站模板" data-desc="适用于农业装备与农机服务企业，强化设备展示、应用场景与服务网络。">
-                <div class="template-image" style="background-image: url('images/demo/018/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">农业机械设备企业网站模板</h3>
-                    <p class="template-desc">适用于农业装备与农机服务企业，强化设备展示、应用场景与服务网络。</p>
-                    <div class="template-features">
-                        <span class="feature">农机产品展示</span>
-                        <span class="feature">作业场景案例</span>
-                        <span class="feature">售后网点查询</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-018/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- 模板卡片19 -->
-            <div class="template-card" data-industry="healthcare" data-style="professional" data-title="医疗器械与康复机构网站模板" data-desc="适合医疗器械企业及康复机构，覆盖产品介绍、科室服务与专业资质展示。">
-                <div class="template-image" style="background-image: url('images/demo/019/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">医疗器械与康复机构网站模板</h3>
-                    <p class="template-desc">适合医疗器械企业及康复机构，覆盖产品介绍、科室服务与专业资质展示。</p>
-                    <div class="template-features">
-                        <span class="feature">医疗产品中心</span>
-                        <span class="feature">康复服务项目</span>
-                        <span class="feature">合规资质展示</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-019/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 模板卡片20 -->
-            <div class="template-card" data-industry="service" data-style="creative" data-title="园林花艺服务机构官网模板" data-desc="面向园林景观与花艺服务公司，支持案例展示、服务说明与报价咨询。">
-                <div class="template-image" style="background-image: url('images/demo/020/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">园林花艺服务机构官网模板</h3>
-                    <p class="template-desc">面向园林景观与花艺服务公司，支持案例展示、服务说明与报价咨询。</p>
-                    <div class="template-features">
-                        <span class="feature">景观项目案例</span>
-                        <span class="feature">服务套餐展示</span>
-                        <span class="feature">在线报价咨询</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-020/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-
-             <!-- 模板卡片21 -->
-            <div class="template-card" data-industry="healthcare" data-style="modern" data-title="维生素保健品企业官网模板" data-desc="适用于保健品生产与供应企业，突出公司资质、生产标准与产品研发能力。">
-                <div class="template-image" style="background-image: url('images/demo/021/main-800x800.png')">
-                    <!-- <span class="template-tag">推荐</span> -->
-                </div>
-                <div class="template-info">
-                    <h3 class="template-title">维生素保健品企业官网模板</h3>
-                    <p class="template-desc">适用于保健品生产与供应企业，突出公司资质、生产标准与产品研发能力。</p>
-                    <div class="template-features">
-                        <span class="feature">产品体系展示</span>
-                        <span class="feature">生产标准说明</span>
-                        <span class="feature">在线询盘入口</span>
-                    </div>
-                    <div class="template-actions">
-                        <button class="btn btn-preview" data-url="https://demo.shopagg.org/b2b-021/">在线预览</button>
-                        <button class="btn btn-contact">联系客服</button>
-                    </div>
-                </div>
-            </div>
-            
         </div>
-        
-        <div class="no-results" id="no-results" style="display: none; text-align: center; margin-top: 2rem; color: #666;">
-            <p>没有找到匹配的模板，请尝试调整筛选条件。</p>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-kicker">客户口碑</span>
+                <h2 class="fw-bold">合作客户常见反馈方向</h2>
+                <p class="section-lead">以下内容为典型反馈总结，便于您了解服务价值与交付侧重点。</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="quote-card">
+                        <h5 class="fw-bold">询盘路径更清晰</h5>
+                        <p>页面结构更聚焦产品优势，询盘入口清楚，客户咨询效率明显提升。</p>
+                        <span class="text-muted small">— 制造业客户反馈方向</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="quote-card">
+                        <h5 class="fw-bold">SEO 基础打得稳</h5>
+                        <p>网站结构与标题设置更利于收录，后期内容优化更有抓手。</p>
+                        <span class="text-muted small">— 外贸业务团队反馈方向</span>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="quote-card">
+                        <h5 class="fw-bold">源码交付更放心</h5>
+                        <p>交付完整、迁移自由度高，内部技术人员可持续迭代。</p>
+                        <span class="text-muted small">— 技术负责人反馈方向</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <!-- 微信二维码模态框 -->
-    <div id="qr-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>联系客服</h2>
-            <img src="https://www.shopagg.com/wp-content/uploads/2026/02/IMG_2002.jpg" alt="微信二维码">
-            <p>扫描二维码添加微信客服</p>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="section-kicker">常见问题</span>
+                <h2 class="fw-bold">合作前先看清关键问题</h2>
+                <p class="section-lead">如果您有更多疑问，我们可以提供一对一免费评估与方案建议。</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="faq-item">
+                        <h5 class="fw-bold">源码交付包含哪些？</h5>
+                        <p class="text-muted">包含前后台代码、部署文档与基础使用说明，便于后续二次开发与迁移。</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="faq-item">
+                        <h5 class="fw-bold">是否支持多语言与多币种？</h5>
+                        <p class="text-muted">系统内置多语言与多币种切换能力，可按市场需求选择配置。</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="faq-item">
+                        <h5 class="fw-bold">上线后如何维护？</h5>
+                        <p class="text-muted">提供基础运维指引与技术支持服务，保障站点稳定运行。</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="faq-item">
+                        <h5 class="fw-bold">是否可对接第三方工具？</h5>
+                        <p class="text-muted">可集成邮件、社媒、聊天工具与统计平台，根据需求配置。</p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    
-    <footer>
-        <p>&copy; 2023 B2B企业官网模板库 - 专业的企业级网站解决方案</p>
+    </section>
+
+    <!-- CTA Strip -->
+    <section class="py-5">
+        <div class="container">
+            <div class="cta-strip d-flex flex-column flex-lg-row align-items-start align-items-lg-center justify-content-between gap-3">
+                <div>
+                    <h3 class="fw-bold mb-2">想要一份适合您行业的建站方案？</h3>
+                    <p class="mb-0">我们可提供结构规划、功能清单与费用明细，让您放心决策。</p>
+                </div>
+                <div>
+                    <a href="#contact" class="btn btn-light btn-lg">获取免费评估</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h2 class="fw-bold mb-5">联系我们要一份专属的外贸出海方案</h2>
+                    <div class="contact-info fs-5">
+                        <p class="mb-3"><i class="fas fa-building"></i> 公司：<strong>杭州思普艾格网络科技有限公司</strong></p>
+                        <p class="mb-3"><i class="fas fa-file-invoice"></i> 税号：91330110MAK48B7H4Y</p>
+                        <p class="mb-3"><i class="fas fa-map-marker-alt"></i> 地址：杭州市余杭区致力通济大厦 A719 室</p>
+                        <p class="mb-3"><i class="fas fa-user"></i> 姓名：庄朋龙</p>
+                        <p class="mb-3"><i class="fas fa-phone"></i> 电话：<a href="tel:15670535667">15670535667</a></p>
+                        <p class="mb-3"><i class="fas fa-envelope"></i> 邮箱：<a href="mailto:zhpelo@shopagg.com">zhpelo@shopagg.com</a></p>
+                        
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <!-- 请替换为您的真实二维码图片 -->
+                    <div class="bg-white p-4 d-inline-block shadow rounded">
+                        <img src="https://www.shopagg.com/wp-content/uploads/2026/02/IMG_2002.jpg" alt="微信二维码" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-4">&copy; 2026 杭州思普艾格网络科技有限公司 版权所有</p>
+            <p class="small text-white">
+                <a href="https://github.com/zhpelo/shopagg-b2b-website" class="text-white text-decoration-none"><i class="fab fa-github"></i> ShopAgg开源建站系统</a> 
+                <span> / </span> 
+                <a href="https://www.shopagg.com/wordpress-hosting/" class="text-white text-decoration-none">WordPress主机</a>
+                <span> / </span> 
+                <a href="https://smallshop.pro/" class="text-white text-decoration-none">跨境小商店</a>
+            </p>
+        </div>
     </footer>
-    
-    <script>
-        // 筛选和搜索功能
-        const industrySelect = document.getElementById('industry');
-        const styleSelect = document.getElementById('style');
-        const searchInput = document.getElementById('search');
-        const templateCards = document.querySelectorAll('.template-card');
-        const noResults = document.getElementById('no-results');
 
-        function filterTemplates() {
-            const industry = industrySelect.value;
-            const style = styleSelect.value;
-            const search = searchInput.value.toLowerCase();
-            let visibleCount = 0;
-
-            templateCards.forEach(card => {
-                const cardIndustry = card.dataset.industry;
-                const cardStyle = card.dataset.style;
-                const cardTitle = card.dataset.title.toLowerCase();
-                const cardDesc = card.dataset.desc.toLowerCase();
-
-                const matchesIndustry = !industry || cardIndustry === industry;
-                const matchesStyle = !style || cardStyle === style;
-                const matchesSearch = !search || cardTitle.includes(search) || cardDesc.includes(search);
-
-                if (matchesIndustry && matchesStyle && matchesSearch) {
-                    card.style.display = 'block';
-                    visibleCount++;
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-
-            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-
-        // 添加事件监听器
-        industrySelect.addEventListener('change', filterTemplates);
-        styleSelect.addEventListener('change', filterTemplates);
-        searchInput.addEventListener('input', filterTemplates);
-
-        // 预览和下载按钮事件
-        document.querySelectorAll('.btn-preview').forEach(button => {
-            button.addEventListener('click', function() {
-                // const templateName = this.closest('.template-card').querySelector('.template-title').textContent;
-                const url = this.dataset.url || '#';
-                // alert(`正在预览模板: ${templateName}`);
-                window.open(url, '_blank');
-            });
-        });
-        
-        document.querySelectorAll('.btn-contact').forEach(button => {
-            button.addEventListener('click', function() {
-                const modal = document.getElementById('qr-modal');
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden'; // 禁止页面滚动
-            });
-        });
-        
-        // 模态框关闭功能
-        const modal = document.getElementById('qr-modal');
-        const closeBtn = document.querySelector('.close');
-        
-        function closeModal() {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // 恢复页面滚动
-        }
-        
-        closeBtn.addEventListener('click', closeModal);
-        
-        window.addEventListener('click', function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        });
-    </script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
